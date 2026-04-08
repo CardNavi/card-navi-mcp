@@ -1,0 +1,43 @@
+{
+  "name": "@card-navi/mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server for Japanese credit card optimization — 189 cards, reward rate comparison, store-specific recommendations",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "card-navi-mcp": "dist/index.js",
+    "card-navi-mcp-http": "dist/http-server.js"
+  },
+  "files": [
+    "dist",
+    "src/data"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:http": "node dist/http-server.js",
+    "seed": "node dist/db/seed.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "credit-card",
+    "rewards",
+    "japan",
+    "card-navi"
+  ],
+  "author": "Synapse Arrows PTE. LTD.",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "better-sqlite3": "^11.7.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}
