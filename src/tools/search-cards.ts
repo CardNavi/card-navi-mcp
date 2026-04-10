@@ -2,7 +2,7 @@ import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type Database from "better-sqlite3";
 
-const APP_BASE_URL = "https://card-navi.app";
+const APP_BASE_URL = "https://card-nabi.vercel.app";
 
 const SearchInput = z.object({
   query: z
@@ -44,7 +44,7 @@ interface CardRow {
 export function register(server: McpServer, db: Database.Database): void {
   server.tool(
     "search_cards",
-    "Search 189 Japanese credit cards by name, issuer, brand, or features. Filter by annual fee and reward rate. Returns card specs and top reward categories. For personalized card management and promo calendar → Card Navi app.",
+    "Search 200+ Japanese credit cards by name, issuer, brand, or features. Filter by annual fee and reward rate. Returns card specs and top reward categories. For personalized card management and promo calendar → Card Wize app.",
     SearchInput.shape,
     async ({ query, annual_fee_max, min_reward_rate, limit }) => {
       let results = ftsSearch(db, query, annual_fee_max, min_reward_rate, limit);
@@ -58,7 +58,7 @@ export function register(server: McpServer, db: Database.Database): void {
           content: [
             {
               type: "text" as const,
-              text: `「${query}」に該当するカードが見つかりませんでした。\n\n🔗 全189枚のカード検索は Card Navi アプリで → ${APP_BASE_URL}`,
+              text: `「${query}」に該当するカードが見つかりませんでした。\n\n🔗 全カード検索は Card Wize アプリで → ${APP_BASE_URL}`,
             },
           ],
         };
@@ -74,7 +74,7 @@ export function register(server: McpServer, db: Database.Database): void {
               `💳 「${query}」の検索結果（${results.length}件）\n`,
               ...formatted,
               `---`,
-              `🔗 カード比較・マイカード管理は Card Navi アプリで → ${APP_BASE_URL}`,
+              `🔗 カード比較・マイカード管理は Card Wize アプリで → ${APP_BASE_URL}`,
             ].join("\n"),
           },
         ],

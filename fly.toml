@@ -1,0 +1,19 @@
+app = "card-wize-mcp"
+primary_region = "nrt"
+
+[build]
+
+[http_service]
+  internal_port = 3002
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+[checks]
+  [checks.health]
+    type = "http"
+    port = 3002
+    path = "/health"
+    interval = "30s"
+    timeout = "5s"

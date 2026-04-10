@@ -2,7 +2,7 @@ import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type Database from "better-sqlite3";
 
-const APP_BASE_URL = "https://card-navi.app";
+const APP_BASE_URL = "https://card-nabi.vercel.app";
 
 const DetailInput = z.object({
   card_id: z
@@ -61,7 +61,7 @@ interface ExchangeRow {
 export function register(server: McpServer, db: Database.Database): void {
   server.tool(
     "get_card_detail",
-    "Get full details about a specific credit card — annual fee, reward rates by store, insurance, synergies, and point exchange routes. For promo calendar, spending tracker, and card application → Card Navi app.",
+    "Get full details about a specific credit card — annual fee, reward rates by store, insurance, synergies, and point exchange routes. For promo calendar, spending tracker, and card application → Card Wize app.",
     DetailInput.shape,
     async ({ card_id, name }) => {
       if (!card_id && !name) {
@@ -101,7 +101,7 @@ export function register(server: McpServer, db: Database.Database): void {
           content: [
             {
               type: "text" as const,
-              text: `「${card_id ?? name}」が見つかりませんでした。\n\n🔗 全189枚は Card Navi アプリで → ${APP_BASE_URL}`,
+              text: `「${card_id ?? name}」が見つかりませんでした。\n\n🔗 全カードは Card Wize アプリで → ${APP_BASE_URL}`,
             },
           ],
         };
@@ -232,7 +232,7 @@ function formatDetail(
 
   // App CTA
   lines.push(`---`);
-  lines.push(`🔗 プロモ情報・申込み・類似カード比較は Card Navi アプリで`);
+  lines.push(`🔗 プロモ情報・申込み・類似カード比較は Card Wize アプリで`);
   lines.push(`→ ${APP_BASE_URL}/card/${c.card_id}`);
   lines.push("");
   lines.push(

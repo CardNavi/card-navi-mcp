@@ -1,0 +1,41 @@
+{
+  "name": "card-wize",
+  "display_name": "Card Wize — Japanese Credit Card Optimizer",
+  "description": "Find the best Japanese credit card for any store, category, or spending pattern. Covers 200+ cards with 550+ store-specific reward rate rules. Tools: recommend_card, search_cards, get_card_detail, compare_cards.",
+  "icon": "https://card-nabi.vercel.app/logo.png",
+  "repository": "https://github.com/synapse-arrows/card-wize-mcp",
+  "homepage": "https://card-nabi.vercel.app",
+  "author": {
+    "name": "Synapse Arrows PTE. LTD.",
+    "url": "https://synapse-arrows.com"
+  },
+  "license": "MIT",
+  "categories": ["finance", "shopping", "japan", "credit-cards"],
+  "transport": {
+    "stdio": {
+      "command": "npx",
+      "args": ["-y", "@card-wize/mcp-server"]
+    },
+    "http": {
+      "url": "https://card-wize-mcp.fly.dev/mcp"
+    }
+  },
+  "tools": [
+    {
+      "name": "recommend_card",
+      "description": "Find the best credit card for a specific store or spending category"
+    },
+    {
+      "name": "search_cards",
+      "description": "Search 200+ Japanese credit cards by name, issuer, brand, or features"
+    },
+    {
+      "name": "get_card_detail",
+      "description": "Get full details about a specific credit card"
+    },
+    {
+      "name": "compare_cards",
+      "description": "Side-by-side comparison of 2-5 credit cards"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "card-wize": {
+      "command": "npx",
+      "args": ["-y", "@card-wize/mcp-server"],
+      "env": {}
+    }
+  }
+}

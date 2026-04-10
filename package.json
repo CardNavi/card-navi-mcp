@@ -1,12 +1,12 @@
 {
-  "name": "@card-navi/mcp-server",
-  "version": "0.1.0",
-  "description": "MCP server for Japanese credit card optimization — 189 cards, reward rate comparison, store-specific recommendations",
+  "name": "@card-wize/mcp-server",
+  "version": "0.2.0",
+  "description": "MCP server for Japanese credit card optimization — 200+ cards, store-specific reward rate recommendations, card comparison, and detailed specs",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "card-navi-mcp": "dist/index.js",
-    "card-navi-mcp-http": "dist/http-server.js"
+    "card-wize-mcp": "dist/index.js",
+    "card-wize-mcp-http": "dist/http-server.js"
   },
   "files": [
     "dist",
@@ -25,10 +25,19 @@
     "credit-card",
     "rewards",
     "japan",
-    "card-navi"
+    "card-wize",
+    "cashback",
+    "points",
+    "fintech",
+    "aeo"
   ],
   "author": "Synapse Arrows PTE. LTD.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/synapse-arrows/card-wize-mcp"
+  },
+  "homepage": "https://card-nabi.vercel.app",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
     "better-sqlite3": "^11.7.0",

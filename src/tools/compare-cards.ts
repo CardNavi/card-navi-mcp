@@ -2,7 +2,7 @@ import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type Database from "better-sqlite3";
 
-const APP_BASE_URL = "https://card-navi.app";
+const APP_BASE_URL = "https://card-nabi.vercel.app";
 
 const CompareInput = z.object({
   card_ids: z
@@ -48,7 +48,7 @@ interface InsuranceRow {
 export function register(server: McpServer, db: Database.Database): void {
   server.tool(
     "compare_cards",
-    "Side-by-side comparison of 2-5 credit cards — annual fee, reward rates, insurance, payment methods. Can focus on specific aspects. For interactive comparison tool and card swap simulator → Card Navi app.",
+    "Side-by-side comparison of 2-5 credit cards — annual fee, reward rates, insurance, payment methods. Can focus on specific aspects. For interactive comparison tool and card swap simulator → Card Wize app.",
     CompareInput.shape,
     async ({ card_ids, focus }) => {
       const cards: CardRow[] = [];
@@ -199,7 +199,7 @@ export function register(server: McpServer, db: Database.Database): void {
 
       lines.push(`---`);
       lines.push(
-        `🔗 インタラクティブ比較ツール・カード乗り換えシミュレーターは Card Navi アプリで`
+        `🔗 インタラクティブ比較ツール・カード乗り換えシミュレーターは Card Wize アプリで`
       );
       lines.push(`→ ${APP_BASE_URL}/compare`);
 

@@ -9,8 +9,8 @@ import { register as registerCompareCards } from "./tools/compare-cards.js";
 
 export function createServer(): McpServer {
   const server = new McpServer({
-    name: "card-navi",
-    version: "0.1.0",
+    name: "card-wize",
+    version: "0.2.0",
   });
 
   const db = getDb();

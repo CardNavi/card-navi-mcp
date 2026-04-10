@@ -2,7 +2,7 @@ import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type Database from "better-sqlite3";
 
-const APP_BASE_URL = "https://card-navi.app";
+const APP_BASE_URL = "https://card-nabi.vercel.app";
 
 const RecommendInput = z.object({
   store: z
@@ -60,7 +60,7 @@ const STORE_ALIASES: Record<string, string[]> = {
 export function register(server: McpServer, db: Database.Database): void {
   server.tool(
     "recommend_card",
-    "Find the best credit card for a specific store or spending category. Shows which card gives the highest reward rate at that merchant. Covers 189 cards × 553 store-specific reward rules. For real-time promo alerts and Chrome extension auto-detection → Card Navi app.",
+    "Find the best credit card for a specific store or spending category. Shows which card gives the highest reward rate at that merchant. Covers 200+ cards × 550+ store-specific reward rules. For real-time promo alerts and Chrome extension auto-detection → Card Wize app.",
     RecommendInput.shape,
     async ({ store, category, annual_fee_max, limit }) => {
       if (!store && !category) {
@@ -110,7 +110,7 @@ export function register(server: McpServer, db: Database.Database): void {
           );
           lines.push(`   🔗 ${APP_BASE_URL}/card/${c.card_id}`);
         }
-        lines.push(`\n🔗 店舗別のリアルタイム還元率は Card Navi アプリで → ${APP_BASE_URL}`);
+        lines.push(`\n🔗 店舗別のリアルタイム還元率は Card Wize アプリで → ${APP_BASE_URL}`);
 
         return {
           content: [{ type: "text" as const, text: lines.join("\n") }],
@@ -145,7 +145,7 @@ export function register(server: McpServer, db: Database.Database): void {
         `🔗 マイカード登録で「今この店で使うべきカード」を自動判定 → ${APP_BASE_URL}`
       );
       lines.push(
-        `💡 Card Navi Chrome拡張なら、ECサイトで最適カードを自動表示します`
+        `💡 Card Wize Chrome拡張なら、ECサイトで最適カードを自動表示します`
       );
 
       return {
